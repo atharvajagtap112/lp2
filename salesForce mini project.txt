@@ -1,0 +1,4 @@
+first create object
+then click on tabs create tabs for two object
+then go on quick search type app manager create new app 
+add books , students, dashboard then next click on system administrator 

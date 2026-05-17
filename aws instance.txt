@@ -1,0 +1,398 @@
+Case Study on Amazon EC2
+Introduction
+
+Amazon Web Services Elastic Compute Cloud, commonly called Amazon EC2, is one of the most popular cloud computing services in the world. It allows businesses and developers to rent virtual servers in the cloud instead of buying physical hardware.
+
+EC2 is mainly used for:
+
+Hosting websites and apps
+Running backend servers
+Big data processing
+Machine learning workloads
+Gaming servers
+Enterprise applications
+
+Official Website: Amazon EC2
+
+What is Amazon EC2?
+
+Amazon EC2 is a web service that provides resizable virtual servers called instances.
+
+Instead of purchasing expensive computers or servers, users can:
+
+Launch virtual machines in minutes
+Scale resources up or down anytime
+Pay only for what they use
+
+EC2 is part of the larger AWS ecosystem.
+
+Key Features of Amazon EC2
+1. Virtual Servers (Instances)
+
+EC2 provides different types of instances based on workload needs.
+
+Examples:
+
+General purpose
+Compute optimized
+Memory optimized
+GPU instances
+
+Popular instance:
+
+t2.micro
+t3.medium
+m5.large
+2. Scalability
+
+Users can increase or decrease:
+
+CPU
+RAM
+Storage
+Number of instances
+
+This helps companies handle traffic spikes efficiently.
+
+Example:
+An e-commerce website during Diwali sale can automatically launch more servers.
+
+3. Pay-as-You-Go Pricing
+
+No need to buy physical infrastructure.
+
+Users pay:
+
+Per hour
+Per second
+Based on usage
+
+This reduces operational cost.
+
+4. Security
+
+EC2 provides:
+
+Security Groups (firewall)
+IAM roles and permissions
+Encryption
+Network isolation using VPC
+5. High Availability
+
+Applications can run across multiple:
+
+Availability Zones
+Regions
+
+This prevents downtime if one server fails.
+
+Components of EC2
+Component	Description
+AMI (Amazon Machine Image)	Template used to launch instances
+Instance	Virtual server
+EBS	Storage volume
+Security Group	Virtual firewall
+Elastic IP	Static public IP
+Key Pair	Used for SSH login
+Real World Case Study
+Netflix Using AWS EC2
+
+Netflix migrated its infrastructure to AWS to improve scalability and reliability.
+
+Problem Faced
+
+Netflix had:
+
+Huge traffic spikes
+Massive storage needs
+Global users
+High uptime requirements
+
+Managing physical servers became difficult.
+
+Solution Using EC2
+
+Netflix used:
+
+EC2 instances for streaming services
+Auto Scaling for traffic handling
+Load Balancers for distributing requests
+Multiple AWS Regions
+Results
+
+Benefits achieved:
+
+Better scalability
+Reduced downtime
+Faster deployment
+Global availability
+Cost optimization
+
+Netflix can now serve millions of users simultaneously.
+
+Architecture Overview of EC2 Deployment
+
+Basic flow:
+
+Users → Load Balancer → EC2 Instances → Database
+
+Typical AWS services used with EC2:
+
+EC2
+RDS
+S3
+CloudWatch
+Auto Scaling
+Elastic Load Balancer
+Advantages of Amazon EC2
+Flexibility
+
+Supports Linux, Windows, and custom configurations.
+
+Cost Effective
+
+No upfront hardware investment.
+
+Easy Deployment
+
+Instances can launch within minutes.
+
+Global Reach
+
+Available across many AWS regions worldwide.
+
+Disaster Recovery
+
+Backup and recovery options available.
+
+Disadvantages of Amazon EC2
+Complex for Beginners
+
+AWS ecosystem can feel overwhelming initially.
+
+Cost Mismanagement
+
+Improper setup may increase bills unexpectedly.
+
+Dependency on Internet
+
+Cloud services require stable connectivity.
+
+EC2 Pricing Models
+Pricing Type	Description
+On-Demand	Pay per use
+Reserved Instances	Long-term discounted usage
+Spot Instances	Cheap unused AWS capacity
+Dedicated Hosts	Physical server dedicated to one customer
+Common Use Cases
+Web Hosting
+
+Running websites and APIs.
+
+Mobile App Backend
+
+Hosting backend services.
+
+AI/ML Workloads
+
+Training machine learning models.
+
+Gaming Servers
+
+Multiplayer game hosting.
+
+Data Analytics
+
+Big data processing systems.
+
+Security Best Practices
+Use IAM roles
+Enable MFA
+Restrict inbound traffic
+Use private subnets
+Regularly monitor logs
+Encrypt sensitive data
+Conclusion
+
+Amazon EC2 changed how companies deploy and manage servers. It offers:
+
+Scalability
+Reliability
+Flexibility
+Cost efficiency
+
+
+
+===============================================================
+Install Apache
+sudo apt update
+sudo apt install apache2 -y
+4. Start Apache
+sudo systemctl start apache2
+5. Open Browser
+
+Visit:
+
+http://your-public-ip
+
+If Apache page opens = practical completed ✅
+
+If Teacher Asks Website Hosting
+
+Create sample HTML page:
+
+cd /var/www/html
+sudo nano index.html
+
+Paste:
+
+<h1>Hello from Amazon EC2</h1>
+
+Save file.
+
+Refresh browser.
+
+Now your hosted webpage appears.
+
+
+
+===============================================================
+Inside EC2 dashboard:
+
+Select your instance
+Click Connect on top
+Go to EC2 Instance Connect
+Click Connect=
+========================================================================
+sudo apt update
+sudo apt install apache2 -y
+
+Then:
+
+sudo systemctl start apache2
+
+
+===========================================================================================
+
+
+Step 1: Create AWS Account
+
+Go to:
+
+AWS Official Website
+
+Click Create an AWS Account
+Add:
+Email
+Password
+Billing details
+Phone verification
+
+After verification, log in to AWS Console.
+
+Step 2: Open EC2 Dashboard
+Search EC2 in AWS search bar
+Open:
+
+Amazon EC2 Console
+
+Now you will see the EC2 Dashboard.
+
+Step 3: Launch an Instance
+
+Click:
+
+Launch Instance
+
+Then configure:
+
+Setting	Example
+Name	MyServer
+AMI	Ubuntu / Amazon Linux
+Instance Type	t2.micro
+Key Pair	Create new key
+Network	Default VPC
+Step 4: Create Key Pair
+
+Key Pair is used for secure login.
+
+Click Create Key Pair
+Enter key name
+Choose:
+RSA
+.pem format
+
+Download the file carefully.
+
+Important:
+Never share this file.
+
+Step 5: Configure Security Group
+
+Security Group works like a firewall.
+
+Allow:
+
+SSH (Port 22)
+HTTP (Port 80)
+HTTPS (Port 443)
+
+Example:
+
+Type	Port
+SSH	22
+HTTP	80
+HTTPS	443
+Step 6: Launch the EC2 Instance
+
+Click:
+
+Launch Instance
+
+AWS will create your virtual server.
+
+Step 7: Connect to EC2 Instance
+
+Select instance → Click Connect
+
+For Linux:
+Use SSH command:
+
+ssh -i mykey.pem ec2-user@public-ip
+
+For Ubuntu:
+
+ssh -i mykey.pem ubuntu@public-ip
+Step 8: Install Web Server
+
+Example for Ubuntu:
+
+sudo apt update
+sudo apt install apache2 -y
+
+Start server:
+
+sudo systemctl start apache2
+
+Enable auto-start:
+
+sudo systemctl enable apache2
+Step 9: Access Website
+
+Copy Public IP from EC2 dashboard.
+
+Open browser:
+
+http://your-public-ip
+
+You will see Apache default webpage.
+
+Step 10: Stop or Terminate Instance
+
+From EC2 Dashboard:
+
+Stop → temporarily stop server
+Terminate → permanently delete server
+
+Important:
+Running instances may generate charges.
